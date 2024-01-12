@@ -1,4 +1,4 @@
-[# jvav Editor 使用说明
+# jvav Editor 使用说明
 
 ## 介绍
 **jvav Editor** 是一个基于 Java Swing 的简单文本编辑器，具有代码折叠、文件树浏览、编译运行等功能。
