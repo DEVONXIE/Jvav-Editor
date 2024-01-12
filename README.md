@@ -1,4 +1,4 @@
-# jvav Editor 使用说明
+[# jvav Editor 使用说明
 
 ## 介绍
 **jvav Editor** 是一个基于 Java Swing 的简单文本编辑器，具有代码折叠、文件树浏览、编译运行等功能。
@@ -43,3 +43,4 @@ ProcessBuilder processBuilder = new ProcessBuilder("CMD.exe", "/C", "start", "ja
 如果在使用过程中遇到问题或有改进意见，请在 [GitHub 仓库](https://github.com/DEVONXIE/Jvav-Editor/edit/main) 提交 issue。
 
 感谢使用 jvav Editor，愿你编码愉快！
+](https://github.com/DEVONXIE/Jvav-Editor)https://github.com/DEVONXIE/Jvav-Editor
