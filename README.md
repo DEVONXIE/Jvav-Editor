@@ -1,7 +1,7 @@
 # jvav Editor 使用说明
 
 ## 介绍
-**jvav Editor** 是一个基于 Java Swing 的简单文本编辑器，具有代码折叠、文件树浏览、编译运行等功能。
+**jvav Editor** 是一个基于 Java Swing 的简单文本编辑器，具有、文件树浏览、编译运行等功能。
 
 ## 安装与运行
 1. 确保你的系统中已经安装了 Java 运行环境（JRE）。
@@ -40,7 +40,6 @@ ProcessBuilder processBuilder = new ProcessBuilder("CMD.exe", "/C", "start", "ja
 - 当前版本可能对部分高级功能支持有限，建议在简单的 Java 代码编辑中使用。
 
 ## 问题反馈
-如果在使用过程中遇到问题或有改进意见，请在 [GitHub 仓库](https://github.com/DEVONXIE/Jvav-Editor/edit/main) 提交 issue。
+如果在使用过程中遇到问题或有改进意见，请在 [GitHub 仓库](https://github.com/DEVONXIE/Jvav-Editor) 提交 issue。
 
 感谢使用 jvav Editor，愿你编码愉快！
-](https://github.com/DEVONXIE/Jvav-Editor)https://github.com/DEVONXIE/Jvav-Editor
