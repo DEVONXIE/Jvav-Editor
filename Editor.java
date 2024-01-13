@@ -16,7 +16,7 @@ import java.awt.event.MouseEvent;
 import java.io.*;
 
 public class Editor extends JFrame {
-    private LineNumberedTextArea textArea;
+    private LineNumberShowTextPane textArea;
     private JTree foldTree;
     private static DefaultTreeModel treeModel;
     private static File currentFile;
@@ -26,8 +26,9 @@ public class Editor extends JFrame {
     public Editor() {
         super("jvav Editor");
         setSize(1920, 1080);
-        textArea = new LineNumberedTextArea();
+        textArea = new LineNumberShowTextPane();
         textArea.setFont(new Font("Monospaced", Font.PLAIN, 15));
+        textArea.getDocument().addDocumentListener(new SyntaxHighlight(textArea));
         JScrollPane scrollPane = new JScrollPane(textArea);
         add(scrollPane, BorderLayout.CENTER);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -163,14 +164,16 @@ public class Editor extends JFrame {
     // 编译并运行函数
     private void compileAndRun() {
         compile();
-        if (compileErrorMessage != null) {
+        if (compileErrorMessage.length() != 0) {
             outputTextArea.setText(compileErrorMessage.toString());
+            compileErrorMessage.setLength(0);
         } else {
             if (currentFile != null) {
                 String filePath = currentFile.getAbsolutePath();
                 try {
                     String className = currentFile.getName().replace(".java", "");
-                    ProcessBuilder processBuilder = new ProcessBuilder("CMD.exe", "/C", "start", "java", className);
+                    ProcessBuilder processBuilder = new ProcessBuilder("CMD.exe", "/C", "start",
+                            "java", className);
                     // ProcessBuilder processBuilder = new ProcessBuilder("java", className);
                     processBuilder.directory(new File(filePath).getParentFile());
                     processBuilder.redirectErrorStream(true);
@@ -219,7 +222,9 @@ public class Editor extends JFrame {
                 output.append(resultMessage);
                 outputTextArea.setText(output.toString());
                 compileErrorMessage.setLength(0);
-                compileErrorMessage.append(output);
+                if (exitCode == 1) {
+                    compileErrorMessage.append(output);
+                }
             } catch (Exception e) {
                 e.printStackTrace();
                 outputTextArea.setText("Error during compilation.\n");
@@ -292,4 +297,5 @@ public class Editor extends JFrame {
             jvav.setVisible(true);
         });
     }
+
 }
